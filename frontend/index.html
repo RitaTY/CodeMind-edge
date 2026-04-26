@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMind — Universal Local Code Engine</title>
+    <meta name="description" content="Privacy-first semantic code intelligence engine. Ask anything about your local codebase.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CodeMind.</h1>
+            <p id="subtitle-text"></p>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <div class="input-wrapper" id="input-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="query-input" placeholder="Ask anything about your codebase…" autocomplete="off" autofocus>
+                    <button id="search-btn">Trace</button>
+                </div>
+            </div>
+
+            <div id="loader" class="loader-container hidden">
+                <div class="wave-loader">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span class="loader-text">Parsing geometry &amp; synthesizing explanation…</span>
+            </div>
+
+            <div id="results" class="results-container hidden">
+                <div class="panels">
+                    <div class="explanation-panel">
+                        <div class="panel-header">
+                            <svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            <h3>Synthesized Reasoning</h3>
+                        </div>
+                        <div class="panel-body" id="llm-output"></div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="panel-header">
+                            <svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <h3>Source Material</h3>
+                        </div>
+                        <div class="snippets-list" id="code-snippets"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

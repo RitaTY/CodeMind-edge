@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qdrant-edge-querycode"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "qdrant-edge-py>=0.1.0",
+    "fastembed>=0.3.6",
+    "openai>=1.52.0",
+    "typer>=0.12.5",
+    "rich>=13.9.0",
+    "python-dotenv>=1.0.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["qdrant_edge_querycode*"]
+
+[project.scripts]
+qdrant-edge-querycode = "qdrant_edge_querycode.CLI_usecase:main"
