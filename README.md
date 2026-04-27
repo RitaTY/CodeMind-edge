@@ -56,8 +56,14 @@ codemind/
 
 ## Prerequisites
 
-- **Python 3.12+** (required for `qdrant-edge-py` binary compatibility)
-- An **Azure OpenAI** account with a deployment of `gpt-5.4-mini` (or any GPT model)
+- **Python 3.12** — `qdrant-edge-py` ships pre-compiled binaries that are only compatible with Python 3.12. Other versions will fail to install or import.
+
+  On macOS you can install it via Homebrew:
+  ```bash
+  brew install python@3.12
+  ```
+
+- An **Azure OpenAI** account with a deployment of `gpt-5.4-mini` (or any `gpt-4o`/`gpt-3.5` class model).
 
 ---
 
@@ -70,7 +76,7 @@ git clone <your-repo-url>
 cd codemind
 ```
 
-### 2. Create a virtual environment
+### 2. Create a virtual environment using Python 3.12
 
 ```bash
 python3.12 -m venv .venv
@@ -83,7 +89,9 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-This installs the `codemind` CLI tool and all dependencies.
+This installs the `codemind` CLI tool and **all dependencies**, including `qdrant-edge-py` (the local vector database), `fastembed` (local embedding model), `openai`, `typer`, `rich`, `fastapi`, and `uvicorn`.
+
+> **Note on `qdrant-edge-py`**: This package provides the Qdrant Edge in-process vector database. It is included automatically via `pyproject.toml` — you do not need to install it separately. If you see a binary import error, double-check that your virtual environment is using Python 3.12 (`python --version`).
 
 ### 4. Configure your API keys
 
