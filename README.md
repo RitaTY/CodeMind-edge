@@ -148,7 +148,9 @@ codemind index ./your-repo --no-summarise
 codemind ask "where is retry logic implemented?"
 codemind ask "how does authentication work?"
 codemind ask "how is the cache invalidated?"
-```
+
+<img width="769" height="689" alt="Screenshot 2026-04-28 at 4 54 56 PM" src="https://github.com/user-attachments/assets/e062d014-3b01-4a02-b18e-464f2066b17b" />
+
 
 To skip the LLM explanation and just see raw retrieval results:
 
@@ -170,6 +172,8 @@ codemind ask "database connection pooling" --top-k 10
 codemind info
 ```
 
+<img width="597" height="179" alt="Screenshot 2026-04-28 at 4 54 26 PM" src="https://github.com/user-attachments/assets/1ab29394-b214-4f09-a736-620c2bcce2ec" />
+
 ---
 
 ### Use the Web UI
@@ -187,24 +191,8 @@ Open your browser at **http://127.0.0.1:8000** and type your question in the sea
 ## How It Works
 
 ```
-Your Codebase
-     │
-     ▼
-[parser.py] — walks repo, extracts functions/classes via ast + regex
-     │
-     ▼
-[summarizes_this.py] — asks LLM: "what does this function do in one sentence?"
-     │  (results cached in .summary-cache.json)
-     ▼
-[Embedder_working.py] — combines name + summary + code + file → local embedding
-     │  (BAAI/bge-small-en-v1.5, runs on CPU via fastembed)
-     ▼
-[store.py] — stores vectors in Qdrant Edge (.qdrant-edge/ on disk)
+<img width="2310" height="5421" alt="NLLM Codebase Embedding-2026-04-27-192426" src="https://github.com/user-attachments/assets/6e610cfa-1665-4fdf-913e-fe139cb060c3" />
 
-
-At query time:
-
-User question → embed → cosine similarity search → top-5 chunks → LLM → answer
 ```
 
 ---
