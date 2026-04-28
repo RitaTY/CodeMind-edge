@@ -149,9 +149,10 @@ codemind ask "where is retry logic implemented?"
 codemind ask "how does authentication work?"
 codemind ask "how is the cache invalidated?"
 
+```
 <img width="769" height="689" alt="Screenshot 2026-04-28 at 4 54 56 PM" src="https://github.com/user-attachments/assets/e062d014-3b01-4a02-b18e-464f2066b17b" />
 
-
+```
 To skip the LLM explanation and just see raw retrieval results:
 
 ```bash
