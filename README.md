@@ -184,10 +184,16 @@ Start the web server:
 ```bash
 uvicorn codemind.server:app --port 8000 --reload
 ```
+<img width="1419" height="729" alt="Screenshot 2026-04-28 at 5 08 00 PM" src="https://github.com/user-attachments/assets/d13be6b7-b460-4b37-8462-e83bfd5a2f11" />
+
 
 Open your browser at **http://127.0.0.1:8000** and type your question in the search bar.
 
 ---
+<img width="1600" height="772" alt="WhatsApp Image 2026-04-28 at 17 10 59" src="https://github.com/user-attachments/assets/88b44d49-2f73-43f7-aef9-2d9a38fa09e2" />
+
+<img width="1438" height="740" alt="Screenshot 2026-04-28 at 5 08 20 PM" src="https://github.com/user-attachments/assets/cbe62eed-cb64-4127-a500-be6535d6bd42" />
+
 
 ## How It Works
 
