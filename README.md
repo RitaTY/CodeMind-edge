@@ -190,10 +190,10 @@ Open your browser at **http://127.0.0.1:8000** and type your question in the sea
 
 ## How It Works
 
-```
+
 <img width="2310" height="5421" alt="NLLM Codebase Embedding-2026-04-27-192426" src="https://github.com/user-attachments/assets/6e610cfa-1665-4fdf-913e-fe139cb060c3" />
 
-```
+
 
 ---
 
