@@ -5,10 +5,22 @@ from dotenv import load_dotenv
 _root = Path(__file__).parent.parent
 load_dotenv(_root / ".env", override=False)
 
-AZURE_ENDPOINT   = os.environ.get("AZURE_OPENAI_ENDPOINT",   "https://alerts-sweden-central.openai.azure.com/")
-AZURE_KEY        = os.environ.get("AZURE_OPENAI_KEY",        "5et4p2o4cSCoOEeAo4k2rIU0pGwekcXQLE2ZukZ2eqvAN2YVvlWhJQQJ99BEACfhMk5XJ3w3AAABACOGoDFa")
+
+AZURE_ENDPOINT   = os.environ.get("AZURE_OPENAI_ENDPOINT")
+AZURE_KEY        = os.environ.get("AZURE_OPENAI_KEY")
 AZURE_VERSION    = os.environ.get("AZURE_OPENAI_VERSION",    "2025-01-01-preview")
-AZURE_DEPLOYMENT = os.environ.get("AZURE_OPENAI_DEPLOYMENT",  "gpt-5.4-mini")
+AZURE_DEPLOYMENT = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5.4-mini")
+
+_REQUIRED = {
+    "AZURE_OPENAI_ENDPOINT": AZURE_ENDPOINT,
+    "AZURE_OPENAI_KEY":      AZURE_KEY,
+}
+_missing = [k for k, v in _REQUIRED.items() if not v]
+if _missing:
+    raise EnvironmentError(
+        f"Missing required environment variables: {', '.join(_missing)}\n"
+        f"Copy .env.example → .env and fill in your credentials."
+    )
 
 SHARD_DIR       = str(_root / ".qdrant-edge")
 VECTOR_NAME     = "code-vector"

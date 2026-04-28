@@ -88,7 +88,7 @@ def ask(
     """
     console.print(
         Panel.fit(
-            f"[bold cyan]🔍 Query:[/] {question}",
+            f"[bold cyan] Query:[/] {question}",
             border_style="cyan",
         )
     )
@@ -104,7 +104,7 @@ def ask(
         console.print("[yellow]No results found. Have you run `querycode index`?[/]")
         raise typer.Exit(1)
 
-    console.print(f"\n[bold]📋 Top {len(results)} Matches[/]\n")
+    console.print(f"\n[bold] Top {len(results)} Matches[/]\n")
 
     table = Table(box=box.ROUNDED, border_style="dim", show_header=True, header_style="bold cyan")
     table.add_column("#",       style="dim",    width=3, justify="right")
@@ -126,7 +126,7 @@ def ask(
     console.print(table)
 
     top = results[0]["payload"]
-    console.print(f"\n[bold]📄 Top Match — [cyan]{top.get('file','?')}[/][/]")
+    console.print(f"\n[bold] Top Match — [cyan]{top.get('file','?')}[/][/]")
     syntax = Syntax(
         top.get("code", ""),
         top.get("language", "python"),
@@ -137,7 +137,7 @@ def ask(
     console.print(Panel(syntax, border_style="dim"))
 
     if not no_llm:
-        console.print("\n[bold]🤖 LLM Explanation[/]")
+        console.print("\n[bold] LLM Explanation[/]")
         with console.status("[cyan]Thinking…[/]"):
             explanation = llm.answer_query(question, results)
 

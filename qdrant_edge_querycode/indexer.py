@@ -46,7 +46,7 @@ def index_repo(
         console.print("[yellow]⚠  Dropping existing index…[/]")
         store.drop_shard()
 
-    console.print(f"\n[bold]📂 Scanning[/] [cyan]{repo_path}[/]…")
+    console.print(f"\n[bold] Scanning[/] [cyan]{repo_path}[/]…")
     all_chunks = list(parser.iter_chunks(repo_path))
 
     if not all_chunks:
@@ -56,7 +56,7 @@ def index_repo(
     console.print(f"   [green]✓[/] Found [bold]{len(all_chunks)}[/] code chunks")
 
     if summarise:
-        console.print("\n[bold]🤖 Generating summaries[/] (cached — skips already seen chunks)…")
+        console.print("\n[bold] Generating summaries[/] (cached — skips already seen chunks)…")
         summarizes_this.add_summaries(all_chunks, show_progress=True)
         console.print(f"   [green]✓[/] Summaries ready")
     else:
@@ -64,7 +64,7 @@ def index_repo(
         for c in all_chunks:
             c.setdefault("summary", "")
 
-    console.print(f"\n[bold]🔢 Embedding & storing[/] in Qdrant Edge…")
+    console.print(f"\n[bold] Embedding & storing[/] in Qdrant Edge…")
     total = len(all_chunks)
     stored = 0
 
@@ -87,12 +87,12 @@ def index_repo(
             progress.advance(task, len(batch))
 
 
-    console.print("\n[bold]⚡ Optimising index…[/]")
+    console.print("\n[bold] Optimising index…[/]")
     store.optimize()
     store.close_shard()
 
     console.print(
-        f"\n[bold green]✅ Done![/]  "
+        f"\n[bold green] Done![/]  "
         f"[bold]{stored}[/] chunks indexed from "
         f"[cyan]{repo_path.name}[/]\n"
     )
