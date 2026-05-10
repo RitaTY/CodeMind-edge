@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg-base: #060606;
+    --bg-base: #2d80c9;
     --bg-panel: rgba(18, 18, 20, 0.7);
     --border-color: #1f1f22;
-    --border-hover: #38383e;
+    --border-hover: #1111c9;
     --text-primary: #ededed;
     --text-secondary: #8c8c93;
-    --accent: #ffffff;
+    --accent: #dcc812;
     --code-bg: #0b0b0d;
     --radius-lg: 14px;
     --radius-md: 9px;
